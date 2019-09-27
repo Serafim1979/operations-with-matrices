@@ -6,6 +6,9 @@
 #include <string.h>
 #include <math.h>
 //////////////////////////////////////////////////////
+#define MMAXITERATIONS 10
+#define LINELEN 4096
+//////////////////////////////////////////////////////
 #define RMISMATCH       110
 #define CMISMATCH       111
 #define NOTSQUARE       112
@@ -31,5 +34,10 @@ const char * m_errmsg(int errcode);
 void m_resetter(void);
 void m_setter(int errcode);
 int m_errcode(void);
+MATRIX_T * m_assign_arr2(MATRIX_T * a, int nrows, int ncols, double * arr);
+MATRIX_T * m_assign_arr1(MATRIX_T * a, int alen, double *arr);
+char * m_getline(FILE * fp);
+MATRIX_T * m_fnew(FILE * fp);
+void m_printf(char *label, char *format, MATRIX_T * a);
 
 #endif // MYMATRIX_H_
